@@ -5,9 +5,9 @@ import csv
 from RemoveOtherLanguages import RemoveOtherLanguages
 from CreateCorpus import CreateCorpus
 
-parentPath = Path(os.path.dirname(__file__)).parent
-data_path_original = os.path.join(parentPath, 'data_march2020\\14dayquarantine.csv')
-data_path_preprocessed = os.path.join(parentPath, 'data_march2020\\14dayquarantine_preprocessed.csv')
+data_path_parent = Path(os.path.dirname(__file__)).parent.parent
+data_path_original = os.path.join(data_path_parent, 'data_march2020\\14dayquarantine.csv')
+data_path_clean_up = os.path.join(data_path_parent, 'data_march2020\\14dayquarantine_cleaned.csv')
 
 
 def print_csv(data_path):
@@ -29,6 +29,8 @@ def print_csv(data_path):
 if __name__ == "__main__":
     print_csv(data_path=data_path_original)
     remover = RemoveOtherLanguages()
-    RemoveOtherLanguages.remove(self=remover, data_path_read=data_path_original, data_path_write=data_path_preprocessed)
-    corpus = CreateCorpus()
-    corpus_text_list = CreateCorpus.create_text_list(self=corpus, data_path_read=data_path_preprocessed)
+    RemoveOtherLanguages.remove(self=remover, data_path_read=data_path_original, data_path_write=data_path_clean_up)
+    corpus_object = CreateCorpus()
+    corpus_text_list = CreateCorpus.create_text_list(self=corpus_object, data_path_read=data_path_clean_up)
+    corpusdir = CreateCorpus.create_corpus_directory(self=corpus_object, data_path_parent=data_path_parent,
+                                                          corpus_list=corpus_text_list)
