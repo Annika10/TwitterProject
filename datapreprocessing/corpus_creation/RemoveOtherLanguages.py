@@ -4,7 +4,7 @@ import csv
 class RemoveOtherLanguages:
 
     # index 11 for language
-    def remove(self, data_path_read, data_path_write, index_language=11):
+    def remove(self, data_path_read, data_path_write, index_language=11, language="en"):
         with open(data_path_read, encoding='utf-8') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter='\t')
             line_count = 0
@@ -16,7 +16,7 @@ class RemoveOtherLanguages:
                         writer.writerow(row)
                         line_count_en += 1
                     else:
-                        if row[index_language] == "en" or row[index_language] == "und":
+                        if row[index_language] == language or row[index_language] == "und":
                             writer.writerow(row)
                             line_count_en += 1
                     line_count += 1

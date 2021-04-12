@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-from statistics import mean
 from nltk.sentiment import SentimentIntensityAnalyzer
 
 from datapreprocessing.preprocessing.Preprocessing import Preprocessing

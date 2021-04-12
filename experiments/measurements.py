@@ -9,3 +9,11 @@ class Measurements:
             for token in tokenized_word_list
         ]
         return scores, mean(scores)
+
+    def get_sentiment(self, score):
+        if score < 0:
+            return "neg"
+        elif score > 0:
+            return "pos"
+        else:
+            return "neu"
