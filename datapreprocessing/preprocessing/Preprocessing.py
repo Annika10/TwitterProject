@@ -1,6 +1,7 @@
 import nltk
 from nltk.corpus.reader.plaintext import PlaintextCorpusReader
 from nltk.tokenize import TweetTokenizer
+from nltk import tokenize
 
 class Preprocessing:
 
@@ -40,3 +41,7 @@ class Preprocessing:
         stopwords = nltk.corpus.stopwords.words("english")
         words_cleaned_up = [w for w in words_cleaned_up if w.lower() not in stopwords]
         return words_cleaned_up
+
+    def tweets_tokenize_sentences(self, tweet):
+        lines_list = tokenize.sent_tokenize(tweet)
+        return lines_list
