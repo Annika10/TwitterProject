@@ -1,6 +1,6 @@
+from textblob import TextBlob
 import os
 from pathlib import Path
-from nltk.sentiment import SentimentIntensityAnalyzer
 
 from datapreprocessing.corpus_creation.CreateCorpus import CreateCorpus
 from datapreprocessing.preprocessing.Preprocessing import Preprocessing
@@ -12,14 +12,10 @@ data_path_parent = Path(os.path.dirname(__file__)).parent
 list_of_data = [
     'data_corona_15_03_en\\corona_15.3.2021_cleaned_en.csv',
     'data_corona_15_03_en\\corona_15.3.2020_cleaned_en.csv',
-    'data_corona_15_03_de\\corona_15.3.2021_cleaned_de.csv',
-    'data_corona_15_03_de\\corona_15.3.2020_cleaned_de.csv'
 ]
 list_of_results = [
-    'corona_15.3.2021_results_en.csv',
-    'corona_15.3.2020_results_en.csv',
-    'corona_15.3.2021_results_de.csv',
-    'corona_15.3.2020_results_de.csv'
+    'corona_15.3.2021_results_en_textblob.csv',
+    'corona_15.3.2020_results_en_textblob.csv',
 ]
 
 data_path_save = os.path.join(data_path_parent, 'experiments\\results\\')
@@ -27,7 +23,6 @@ data_path_save = os.path.join(data_path_parent, 'experiments\\results\\')
 if __name__ == "__main__":
     corpus = CreateCorpus()
     preprocessing = Preprocessing()
-    sid = SentimentIntensityAnalyzer()
     measurements = Measurements()
     save = SaveResults()
 
@@ -41,13 +36,11 @@ if __name__ == "__main__":
         for tweet in list_of_tweets:
             print("new tweet")
             print(tweet)
-            ss = sid.polarity_scores(tweet)
-            for k in sorted(ss):
-                print('{0}: {1}, '.format(k, ss[k]), end='')
-            print()
+            testimonial = TextBlob(tweet)
+            print(testimonial.sentiment.polarity)
             number_of_positive_tweets, number_of_negative_tweets, number_of_neutral_tweets = \
                 measurements.update_number_of_sentiment_lists(
-                    compound=ss['compound'],
+                    compound=testimonial.sentiment.polarity,
                     number_of_positive_tweets=number_of_positive_tweets,
                     number_of_negative_tweets=number_of_negative_tweets,
                     number_of_neutral_tweets=number_of_neutral_tweets
@@ -62,4 +55,3 @@ if __name__ == "__main__":
             save.save_results(data_path_save + list_of_results[index], number_of_positive_tweets, number_of_negative_tweets, number_of_neutral_tweets)
         else:
             print("\033[32mSomething went wrong", "\033[0m")
-

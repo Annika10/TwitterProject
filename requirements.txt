@@ -1,2 +1,5 @@
 nltk
 twint
+matplotlib
+textblob
+textblob_de
