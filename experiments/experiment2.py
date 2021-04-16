@@ -2,10 +2,9 @@ import os
 from pathlib import Path
 from nltk.sentiment import SentimentIntensityAnalyzer
 
-from datapreprocessing.corpus_creation.CreateCorpus import CreateCorpus
-from datapreprocessing.preprocessing.Preprocessing import Preprocessing
-from experiments.measurements import Measurements
-from experiments.saveResults import SaveResults
+from datapreprocessing.corpus_creation.CreateCorpus import create_text_list
+from experiments.measurements import update_number_of_sentiment_lists
+from experiments.saveResults import save_results
 
 data_path_parent = Path(os.path.dirname(__file__)).parent
 
@@ -25,14 +24,10 @@ list_of_results = [
 data_path_save = os.path.join(data_path_parent, 'experiments\\results\\')
 
 if __name__ == "__main__":
-    corpus = CreateCorpus()
-    preprocessing = Preprocessing()
     sid = SentimentIntensityAnalyzer()
-    measurements = Measurements()
-    save = SaveResults()
 
     for index in range(len(list_of_data)):
-        list_of_tweets = corpus.create_text_list(data_path_read=os.path.join(data_path_parent, list_of_data[index]), index_tweet=10)
+        list_of_tweets = create_text_list(data_path_read=os.path.join(data_path_parent, list_of_data[index]), index_tweet=10)
         number_of_tweets = len(list_of_tweets)
         number_of_positive_tweets = 0
         number_of_negative_tweets = 0
@@ -46,7 +41,7 @@ if __name__ == "__main__":
                 print('{0}: {1}, '.format(k, ss[k]), end='')
             print()
             number_of_positive_tweets, number_of_negative_tweets, number_of_neutral_tweets = \
-                measurements.update_number_of_sentiment_lists(
+                update_number_of_sentiment_lists(
                     compound=ss['compound'],
                     number_of_positive_tweets=number_of_positive_tweets,
                     number_of_negative_tweets=number_of_negative_tweets,
@@ -59,7 +54,7 @@ if __name__ == "__main__":
         print("number_of_tweets", number_of_tweets)
 
         if number_of_tweets == (number_of_positive_tweets + number_of_negative_tweets + number_of_neutral_tweets):
-            save.save_results(data_path_save + list_of_results[index], number_of_positive_tweets, number_of_negative_tweets, number_of_neutral_tweets)
+            save_results(data_path_save + list_of_results[index], number_of_positive_tweets, number_of_negative_tweets, number_of_neutral_tweets)
         else:
             print("\033[32mSomething went wrong", "\033[0m")
 

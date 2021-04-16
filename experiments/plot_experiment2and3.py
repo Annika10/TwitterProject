@@ -3,7 +3,7 @@ from pathlib import Path
 import os
 import numpy as np
 
-from experiments.saveResults import SaveResults
+from experiments.saveResults import get_results
 
 data_path_parent = Path(os.path.dirname(__file__)).parent
 data_path_results = os.path.join(data_path_parent, 'experiments\\results\\')
@@ -22,7 +22,6 @@ list_of_results_1 = [
 used_list = list_of_results_1
 
 if __name__ == "__main__":
-    save = SaveResults()
 
     # create a figure with 4 subplots
     fig, axs = plt.subplots(2, 2)
@@ -31,7 +30,7 @@ if __name__ == "__main__":
     dict_names = {0: "2021_en", 1: "2020_en", 2: "2021_de", 3: "2020_de"}
 
     for index in range(len(used_list)):
-        number_of_positive_tweets, number_of_negative_tweets, number_of_neutral_tweets = save.get_results(data_path_results + used_list[index])
+        number_of_positive_tweets, number_of_negative_tweets, number_of_neutral_tweets = get_results(data_path_results + used_list[index])
         sum_tweets = int(number_of_positive_tweets) + int(number_of_negative_tweets) + int(number_of_neutral_tweets)
         values = np.array([number_of_positive_tweets, number_of_negative_tweets, number_of_neutral_tweets])
 

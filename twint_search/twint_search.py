@@ -2,6 +2,11 @@ import twint
 
 
 def search_for_tweets(terms):
+    """
+    for each element of the terms list, searches for tweets which include this element and saves all in a csv file
+    :param terms: list of terms (strings)
+    :return: None
+    """
     for item in terms:
         print("item", item)
         # configuration
