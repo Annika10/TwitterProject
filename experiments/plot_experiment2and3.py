@@ -14,10 +14,10 @@ list_of_results = [
     'corona_15.3.2020_results_de.csv'
 ]
 list_of_results_1 = [
-    'corona_15.3.2021_results_en_textblob.csv',
     'corona_15.3.2020_results_en_textblob.csv',
-    'corona_15.3.2021_results_de_textblob.csv',
     'corona_15.3.2020_results_de_textblob.csv',
+    'corona_15.3.2021_results_en_textblob.csv',
+    'corona_15.3.2021_results_de_textblob.csv',
 ]
 used_list = list_of_results_1
 
@@ -27,7 +27,7 @@ if __name__ == "__main__":
     fig, axs = plt.subplots(2, 2)
     label = ["positive tweets", "negative tweets", "neutral tweets"]
     dict_axes = {0: axs[0, 0], 1: axs[0, 1], 2: axs[1, 0], 3: axs[1, 1]}
-    dict_names = {0: "2021_en", 1: "2020_en", 2: "2021_de", 3: "2020_de"}
+    dict_names = {0: "2020_en", 1: "2020_de", 2: "2021_en", 3: "2021_de"}
 
     for index in range(len(used_list)):
         number_of_positive_tweets, number_of_negative_tweets, number_of_neutral_tweets = get_results(data_path_results + used_list[index])

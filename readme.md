@@ -23,11 +23,16 @@ I search for all tweets which include the term: "corona".
 
 Note that the scraping tool Twint uses the Western European Time, but I save them in the Central European Time.
 Therefore, the hour at 15.3. from 0:00 to 1:00 doesn't occur in my dataset but on the other hand the hour from 0:00 to 1:00 at 16.3.
+The scraping is implemented in [twint_search.py](./twint_search/twint_search.py).
+The scraped data can be found in the folders [data_corona_15_03_en](./data_corona_15_03_en) and [data_corona_15_03_de](./data_corona_15_03_de).
 
 ## Problems by scraping
 Unfortunately, the tool [Twint](https://github.com/twintproject/twint) doesn't work properly. 
 I defined that only english tweets should be scraped, but the tool doesn't takes this into account and scraped all tweets.
 Therefore, I had to preprocess the scraped data and implement a function which sorts our the non-english tweets.
+Because of this circumstances I also consider german tweets in my analysis by sorting out all non-german tweets.
+
+# Preprocessing
 
 
 # Experiments
@@ -36,3 +41,16 @@ Therefore, I had to preprocess the scraped data and implement a function which s
     positive sentiment: compound score >= 0.5
     neutral sentiment: (compound score > -0.5) and (compound score < 0.5)
     negative sentiment: compound score <= -0.5
+    
+## Experiment 2
+
+In the second experiment I use the [SentimentIntensityAnalyzer](https://www.nltk.org/api/nltk.sentiment.html?highlight=sentimentintensityanalyzer#nltk.sentiment.vader.SentimentIntensityAnalyzer) of the [nltk](https://www.nltk.org/) library. 
+
+...
+
+So I run through each tweet and calculate the [polarity score](https://www.nltk.org/api/nltk.sentiment.html?highlight=polarity%20score#nltk.sentiment.vader.SentimentIntensityAnalyzer.polarity_scores). 
+The polarity score results among other measurements the compound score. 
+
+## Experiment 3
+# Future work
+maybe covid instead of corona
