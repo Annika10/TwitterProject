@@ -111,3 +111,26 @@ def print_csv(data_path):
                 line_count += 1
                 print()
         print(f'Processed {line_count} lines.')
+
+
+def select_tweets_with_high_number_of_reactions(data_path_read, data_path_write, min_count_reaction, indexes_reaction):
+    with open(data_path_read, encoding='utf-8') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter='\t')
+        line_count = 0
+        line_count_popular = 0
+        with open(data_path_write, 'w', newline='', encoding='utf-8') as preprocessed_csv_file:
+            writer = csv.writer(preprocessed_csv_file, delimiter='\t')
+            for row in csv_reader:
+                if line_count == 0:
+                    writer.writerow(row)
+                    line_count_popular += 1
+                else:
+                    # TODO: fix duplicates
+                    for index_reaction in indexes_reaction:
+                        if int(row[index_reaction]) >= min_count_reaction:
+                            writer.writerow(row)
+                            line_count_popular += 1
+                            break
+                line_count += 1
+
+        print(f'Processed {line_count} lines. Remaining lines: {line_count_popular}')

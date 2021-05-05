@@ -19,7 +19,19 @@ list_of_results_1 = [
     'corona_15.3.2021_results_de_textblob.csv',
     'corona_15.3.2020_results_de_textblob.csv',
 ]
-used_list = list_of_results_1
+list_of_results_2 = [
+    'corona_15.3.2021_results_en_textblob_high_popularity.csv',
+    'corona_15.3.2020_results_en_textblob_high_popularity.csv',
+    'corona_15.3.2021_results_de_textblob_high_popularity.csv',
+    'corona_15.3.2020_results_de_textblob_high_popularity.csv',
+]
+list_of_results_3 = [
+    'corona_15.3.2021_results_en_high_popularity.csv',
+    'corona_15.3.2020_results_en_high_popularity.csv',
+    'corona_15.3.2021_results_de_high_popularity.csv',
+    'corona_15.3.2020_results_de_high_popularity.csv',
+]
+used_list = list_of_results_3
 
 if __name__ == "__main__":
 

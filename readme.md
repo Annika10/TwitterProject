@@ -36,3 +36,8 @@ Therefore, I had to preprocess the scraped data and implement a function which s
     positive sentiment: compound score >= 0.5
     neutral sentiment: (compound score > -0.5) and (compound score < 0.5)
     negative sentiment: compound score <= -0.5
+    
+![Alt text](result_images/result_sia.PNG "sia")
+![Alt text](result_images/result_text_blob.PNG "test blob")
+![Alt text](result_images/high_popularity.PNG "high popularity")
+![Alt text](result_images/sia_high_popularity.PNG "sia high popularity")
