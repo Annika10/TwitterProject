@@ -36,7 +36,7 @@ if __name__ == "__main__":
         for tweet in list_of_tweets:
             print("new tweet")
             print(tweet)
-            ss = sid.polarity_scores(tweet)
+            ss = SentimentIntensityAnalyzer().polarity_scores(tweet)
             for k in sorted(ss):
                 print('{0}: {1}, '.format(k, ss[k]), end='')
             print()
