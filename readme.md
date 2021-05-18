@@ -36,25 +36,52 @@ Because of this circumstances I also consider german tweets in my analysis by so
 
 
 # Experiments
-...
 
-    positive sentiment: compound score >= 0.5
-    neutral sentiment: (compound score > -0.5) and (compound score < 0.5)
-    negative sentiment: compound score <= -0.5
+In each experiment I run through each tweet and calculate the polarity score also known as compound. 
+A tweet is considered as positive, neutral or negative by the following polarity scores.
+
+    positive sentiment: polarity score > 0
+    neutral sentiment:  polarity score = 0
+    negative sentiment: polarity score < 0
     
+For calculating the polarity score I use two different text processing libraries, 
+the [SentimentIntensityAnalyzer](https://www.nltk.org/api/nltk.sentiment.html?highlight=sentimentintensityanalyzer#nltk.sentiment.vader.SentimentIntensityAnalyzer) of the [nltk](https://www.nltk.org/) library and 
+the [TextBlob](https://textblob.readthedocs.io/en/dev/) of the textblob library. 
+In addition, I use the german version of the [textblob](https://textblob-de.readthedocs.io/en/latest/) library for processing the german tweets. 
+With this polarity score I determine for each tweet, if it is a positive, negative or neutral tweet. 
+In the end I save the number of positive, negative and neutral tweets in the [results folder](experiments/results).
+
+## Result plotting
+
+The number of positive, negative and neutral tweets are plotted as pie diagrams with [matplotlib](https://matplotlib.org/).
+The first row shows the pie diagrams for english tweets for 15.03.2020 and 15.03.2021.
+The second row shows the same for german tweets. 
+Each diagram show the percentage of each category of tweets. 
+The neutral tweets are colored green, the positive tweets blue and the negative tweets orange.
+In each title of the pie diagram is the overall number of collected tweets.  
+
+## Experiment 1
+
+In the first experiment I use the [SentimentIntensityAnalyzer](https://www.nltk.org/api/nltk.sentiment.html?highlight=sentimentintensityanalyzer#nltk.sentiment.vader.SentimentIntensityAnalyzer) of the [nltk](https://www.nltk.org/) library.
+The sentiment analyzer is run over all tweets of the 15.03.2020 and 15.03.2021.
+The results of these numbers are shown in the following image. 
 ![Alt text](result_images/result_sia.PNG "sia")
-![Alt text](result_images/result_text_blob.PNG "test blob")
-![Alt text](result_images/high_popularity.PNG "high popularity")
-![Alt text](result_images/sia_high_popularity.PNG "sia high popularity")
+
 ## Experiment 2
 
-In the second experiment I use the [SentimentIntensityAnalyzer](https://www.nltk.org/api/nltk.sentiment.html?highlight=sentimentintensityanalyzer#nltk.sentiment.vader.SentimentIntensityAnalyzer) of the [nltk](https://www.nltk.org/) library. 
+In the second experiment I use [TextBlob](https://textblob.readthedocs.io/en/dev/) for the text processing library.
+Note that I have here an extra file for the german classification because it uses [TextBlob for German language](https://textblob-de.readthedocs.io/en/latest/) which is its own library and not included in the standard textblob library. 
+The results are shown in the following.
+![Alt text](result_images/result_text_blob.PNG "test blob")
 
-...
+## Experiment 3 
 
-So I run through each tweet and calculate the [polarity score](https://www.nltk.org/api/nltk.sentiment.html?highlight=polarity%20score#nltk.sentiment.vader.SentimentIntensityAnalyzer.polarity_scores). 
-The polarity score results among other measurements the compound score. 
+The structure of the third experiment is equal to the structure of the first experiment. 
+    
+![Alt text](result_images/high_popularity.PNG "high popularity")
+![Alt text](result_images/sia_high_popularity.PNG "sia high popularity")
 
-## Experiment 3
+# Conclusion
+
 # Future work
 maybe covid instead of corona
