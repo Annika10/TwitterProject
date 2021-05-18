@@ -37,8 +37,9 @@ Because of this circumstances I also consider german tweets in my analysis by so
 
 # Experiments
 
-In each experiment I run through each tweet and calculate the polarity score also known as compound. 
-A tweet is considered as positive, neutral or negative by the following polarity scores.
+In each experiment I run through each tweets and calculate the polarity score also known as compound of each tweets.
+I consider experiment with all selected tweets as well as a selection of popular tweets.
+A tweet is considered as positive, neutral or negative by the following polarity scores. 
 
     positive sentiment: polarity score > 0
     neutral sentiment:  polarity score = 0
@@ -51,6 +52,13 @@ In addition, I use the german version of the [textblob](https://textblob-de.read
 With this polarity score I determine for each tweet, if it is a positive, negative or neutral tweet. 
 In the end I save the number of positive, negative and neutral tweets in the [results folder](experiments/results).
 
+## Popular tweets
+
+For reflecting more the overall opinion and not only some individual opinions, I made a selection on the tweets. 
+The selection includes popular tweets. 
+I refer a tweet as popular when it has at least 100 replies, retweets or likes. 
+The selection is made here: ...
+
 ## Result plotting
 
 The number of positive, negative and neutral tweets are plotted as pie diagrams with [matplotlib](https://matplotlib.org/).
@@ -61,25 +69,34 @@ The neutral tweets are colored green, the positive tweets blue and the negative 
 In each title of the pie diagram is the overall number of collected tweets.  
 
 ## Experiment 1
+### Sentiment Intensity Analyzer - all tweets
 
 In the first experiment I use the [SentimentIntensityAnalyzer](https://www.nltk.org/api/nltk.sentiment.html?highlight=sentimentintensityanalyzer#nltk.sentiment.vader.SentimentIntensityAnalyzer) of the [nltk](https://www.nltk.org/) library.
 The sentiment analyzer is run over all tweets of the 15.03.2020 and 15.03.2021.
 The results of these numbers are shown in the following image. 
 ![Alt text](result_images/result_sia.PNG "sia")
 
-## Experiment 2
+## Experiment 2, 3
+### Textblob - all tweets
 
 In the second experiment I use [TextBlob](https://textblob.readthedocs.io/en/dev/) for the text processing library.
-Note that I have here an extra file for the german classification because it uses [TextBlob for German language](https://textblob-de.readthedocs.io/en/latest/) which is its own library and not included in the standard textblob library. 
+Note that the third experiment is similar to the second but uses [TextBlob for German language](https://textblob-de.readthedocs.io/en/latest/) which is its own library and not included in the standard textblob library. 
 The results are shown in the following.
 ![Alt text](result_images/result_text_blob.PNG "test blob")
 
-## Experiment 3 
+## Experiment 4
+### Sentiment Intensity Analyzer - popular tweets
 
-The structure of the third experiment is equal to the structure of the first experiment. 
-    
-![Alt text](result_images/high_popularity.PNG "high popularity")
+The structure of the fourth experiment is equal to the structure of the first experiment.
+The difference is the used data. 
+In this experiment only popular tweets (more than 100 retweets, replies or likes) are considered. 
 ![Alt text](result_images/sia_high_popularity.PNG "sia high popularity")
+
+## Experiment 5,6
+### Textblob - popular tweets
+
+The fifth and sixth experiment is the same as the second and third experiment, but the input data are popular tweets like in experiment four.
+![Alt text](result_images/high_popularity.PNG "high popularity")
 
 # Conclusion
 
