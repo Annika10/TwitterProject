@@ -9,9 +9,10 @@ from experiments.result_lists import list_of_results_all, list_of_results_englis
     list_of_results_all_popularity, list_of_results_english_popularity, list_of_results_german_popularity
 from experiments.plotting import plot_results
 
-
+# TODO: for using change to your path
 data_path_parent = Path(os.path.dirname(__file__)).parent
-data_path_save = os.path.join(data_path_parent, 'TwitterProject\\experiments\\results\\')
+data_path_parent = os.path.join(data_path_parent, 'nltk')
+data_path_save = os.path.join(data_path_parent, 'experiments\\results\\')
 
 if __name__ == "__main__":
     nltk.download()

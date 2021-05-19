@@ -46,7 +46,6 @@ def run_textblob_classifier_and_save(data_path_parent, data_path_save, list_of_d
 
         for tweet in list_of_tweets:
             testimonial = TextBlob(tweet)
-            print(testimonial.sentiment.polarity)
             number_of_positive_tweets, number_of_negative_tweets, number_of_neutral_tweets = \
                 update_number_of_sentiment_lists(
                     compound=testimonial.sentiment.polarity,
@@ -71,7 +70,6 @@ def run_textblobDE_classifier_and_save(data_path_parent, data_path_save, list_of
 
         for tweet in list_of_tweets:
             testimonial = TextBlobDE(tweet)
-            print(testimonial.sentiment.polarity)
             number_of_positive_tweets, number_of_negative_tweets, number_of_neutral_tweets = \
                 update_number_of_sentiment_lists(
                     compound=testimonial.sentiment.polarity,

@@ -32,7 +32,7 @@ def create_text_list(data_path_read, index_tweet=10):
     print(f'Processed {line_count} lines and the corpus list consists of {len(corpus_list)} elements.')
     return corpus_list
 
-
+# not used
 def create_corpus_directory(data_path_parent, corpus_list):
     """
     creates a directory with textfiles for each tweets
@@ -114,6 +114,14 @@ def print_csv(data_path):
 
 
 def select_tweets_with_high_number_of_reactions(data_path_read, data_path_write, min_count_reaction, indexes_reaction):
+    """
+    # TODO
+    :param data_path_read:
+    :param data_path_write:
+    :param min_count_reaction:
+    :param indexes_reaction:
+    :return:
+    """
     with open(data_path_read, encoding='utf-8') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter='\t')
         line_count = 0
