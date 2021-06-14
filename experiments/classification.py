@@ -3,7 +3,7 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 from textblob import TextBlob
 from textblob_de import TextBlobDE as TextBlobDE
 
-from datapreprocessing.corpus_creation.CreateCorpus import create_text_list
+from datapreprocessing.create_dataset import create_text_list
 from experiments.measurements import update_number_of_sentiment_lists
 from experiments.saveResults import save_results
 

@@ -1,3 +1,7 @@
+list_of_data_original = [
+    'data\\corona_15.3.2021.csv',
+    'data\\corona_15.3.2020.csv'
+]
 list_of_data_all = [
     'data_corona_15_03_en\\corona_15.3.2021_cleaned_en.csv',
     'data_corona_15_03_en\\corona_15.3.2020_cleaned_en.csv',

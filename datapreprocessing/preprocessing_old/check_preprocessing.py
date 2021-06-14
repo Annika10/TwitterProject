@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-from datapreprocessing.preprocessing.Preprocessing import get_corpus, plain_text_corpus, get_words_corpus
+from datapreprocessing.preprocessing_old.Preprocessing import get_corpus, plain_text_corpus, get_words_corpus
 
 data_path_parent = Path(os.path.dirname(__file__)).parent.parent
 data_path_corpus = os.path.join(data_path_parent, 'corpus_tweets')

@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from nltk.sentiment import SentimentIntensityAnalyzer
 
-from datapreprocessing.preprocessing.Preprocessing import get_corpus, plain_text_corpus, get_words_corpus, tweets_tokenize_words, get_words_clean
+from datapreprocessing.preprocessing_old.Preprocessing import get_corpus, plain_text_corpus, get_words_corpus, tweets_tokenize_words, get_words_clean
 from experiments.measurements import get_scores
 
 data_path_parent = Path(os.path.dirname(__file__)).parent

@@ -1,15 +1,4 @@
 import csv
-import os
-import re
-
-
-# for sorting
-# def natural_key(string_):
-#     """
-#     Sorts like a human, so e.g. not like this: text1, text11, text2 and instead like this text1, text2, text11
-#     See https://blog.codinghorror.com/sorting-for-humans-natural-sort-order/
-#     """
-#     return [int(s) if s.isdigit() else s for s in re.split(r'(\d+)', string_)]
 
 
 # index 10 for tweet
@@ -31,37 +20,6 @@ def create_text_list(data_path_read, index_tweet=10):
 
     print(f'Processed {line_count} lines and the corpus list consists of {len(corpus_list)} elements.')
     return corpus_list
-
-
-# not used
-# def create_corpus_directory(data_path_parent, corpus_list):
-#     """
-#     creates a directory with textfiles for each tweets
-#     :param data_path_parent: directory where the folder for the corpus should be created
-#     :param corpus_list: list of tweets as strings
-#     :return: the path of the created directory
-#     """
-#     # Make new dir for the corpus.
-#     corpusdir = os.path.join(data_path_parent, 'corpus_tweets/')
-#     if not os.path.isdir(corpusdir):
-#         os.mkdir(corpusdir)
-#
-#     # Output the files into the directory.
-#     filename = 0
-#     for text in corpus_list:
-#         filename += 1
-#         with open(corpusdir + 'tweet' + str(filename) + '.txt', 'w', encoding='utf-8') as file_out:
-#             file_out.write(text)
-#
-#     print(f'Created corpus in directory: {corpusdir}')
-#
-#     # Check that our corpus do exist and the files are correct.
-#     assert os.path.isdir(corpusdir)
-#     for infile, text in zip(sorted(os.listdir(corpusdir), key=natural_key), corpus_list):
-#         assert open(corpusdir + infile, 'r', encoding='utf-8').read().strip() == text.strip()
-#
-#     print('Checked corpus successfully.')
-#     return corpusdir
 
 
 # index 11 for language

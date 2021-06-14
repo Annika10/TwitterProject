@@ -3,21 +3,23 @@ from pathlib import Path
 import nltk
 
 from experiments.classification import run_sia_classifier_and_save, run_textblob_classifier_and_save, run_textblobDE_classifier_and_save
-from experiments.data_lists import list_of_data_all, list_of_data_english, list_of_data_german, \
+from experiments.data_lists import list_of_data_original, list_of_data_all, list_of_data_english, list_of_data_german, \
     list_of_data_all_popularity, list_of_data_english_popularity, list_of_data_german_popularity
 from experiments.result_lists import list_of_results_all, list_of_results_english, list_of_results_german, \
     list_of_results_all_popularity, list_of_results_english_popularity, list_of_results_german_popularity
 from experiments.plotting import plot_results
+from datapreprocessing.preprocessing import run_preprocessing
 
-# TODO: for using change to your path
-data_path_parent = Path(os.path.dirname(__file__)).parent
-data_path_parent = os.path.join(data_path_parent, 'nltk')
+data_path_parent = Path(os.path.dirname(__file__))
 data_path_save = os.path.join(data_path_parent, 'experiments\\results\\')
 
 if __name__ == "__main__":
-    nltk.download()
+    # nltk.download()
 
-    ###### preprocessing #####
+    ##### preprocessing #####
+
+    #run_preprocessing(data_path_parent, list_of_data_original, list_of_data_english, list_of_data_english_popularity)
+    #run_preprocessing(data_path_parent, list_of_data_original, list_of_data_german, list_of_data_german_popularity, language='de')
 
     ##### experiments #####
 
