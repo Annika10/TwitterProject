@@ -3,6 +3,7 @@ This project is implemented as a student project of the course Intelligent Infor
 The aim is to compare the sentiment of tweets from the 15.03.2020 and 15.03.2021 which deal with the covid-19 crisis. 
 For this I downloaded the corresponding tweets and used two pretrained classifiers for gaining the sentiment.
 In the end the results are compared by plotting them in a pie chart.
+My hypothesis is that the tweets are getting more negative in 2021 because the covid-19 crisis takes already a year.
 
 # Scraping Tweets
 For scraping the tweets of the 15.03.2020 and 15.03.2021 I use the tool [Twint](https://github.com/twintproject/twint).
@@ -25,6 +26,8 @@ Note that the scraping tool Twint uses the Western European Time, but I save the
 Therefore, the hour at 15.3. from 0:00 to 1:00 doesn't occur in my dataset but on the other hand the hour from 0:00 to 1:00 at 16.3.
 The scraping is implemented in [twint_search.py](./twint_search/twint_search.py).
 The scraped data can be found in the folders [data_corona_15_03_en](./data_corona_15_03_en) and [data_corona_15_03_de](./data_corona_15_03_de).
+In the first run I wanted to scrape all tweets of march with terms which belong to the covid-19 crisis, but this was way too much data and my computer couldn’t handle this. 
+The scraping is done in [twint_search.py](twint_search/twint_search.py).
 
 ## Problems by Scraping
 Unfortunately, the tool [Twint](https://github.com/twintproject/twint) doesn't work properly. 
@@ -57,11 +60,6 @@ As you will notice there are a lot more tweets related to "corona" at 15.03.2020
 Especially the tweets in English drop down from 210502 to 10845 tweets.
 I assume that this is due to the point that the corona crisis just started in March 2020 in the English and German speaking countries and therefore more people spoke about it these times.  
 
-# Preprocessing
-
-As preprocessing we collect the tweets which are in English and German language.
-In addition, we select from these tweets the popular tweets which are defined like explained above. 
-
 # Experiments
 
 In each experiment I run through each tweet and calculate the polarity score also known as compound of each tweet.
@@ -72,6 +70,14 @@ A tweet is considered as positive, neutral or negative by the following polarity
     neutral sentiment:  polarity score < 0.5 and polarity score > -0.5 
     negative sentiment: polarity score <= -0.5
 
+The experiments with its preprocessing and plotting is implemented in [main.py](main.py).
+
+## Preprocessing
+
+As preprocessing we collect the tweets which are in English and German language.
+In addition, we select from these tweets the popular tweets which are defined like explained above. 
+
+## Running Experiments
     
 For calculating the polarity score I use two different text processing libraries, the [SentimentIntensityAnalyzer](https://www.nltk.org/api/nltk.sentiment.html?highlight=sentimentintensityanalyzer#nltk.sentiment.vader.SentimentIntensityAnalyzer) of the [nltk](https://www.nltk.org/) library and the [TextBlob](https://textblob.readthedocs.io/en/dev/) of the textblob library. 
 In addition, I use the German version of the [textblob](https://textblob-de.readthedocs.io/en/latest/) library for processing the German tweets. 
@@ -118,12 +124,30 @@ The fifth and sixth experiment is the same as the second and third experiment, b
 ![Alt text](result_images/experiment5_6.PNG "high popularity")
 
 ## Analysis of experiments
+Firstly, I compare the differences between both sentiment analyzers. 
+By comparing with the results of all tweets I noticed that though the number of positive tweets for English tweet are very similar, the [SentimentIntensityAnalyzer](https://www.nltk.org/api/nltk.sentiment.html?highlight=sentimentintensityanalyzer#nltk.sentiment.vader.SentimentIntensityAnalyzer) of the [nltk](https://www.nltk.org/) library declares more English tweets as negative. 
+By comparing the sentiment of German tweets, the differences are bigger. 
+The [SentimentIntensityAnalyzer](https://www.nltk.org/api/nltk.sentiment.html?highlight=sentimentintensityanalyzer#nltk.sentiment.vader.SentimentIntensityAnalyzer) detects way more negative German tweets but way fewer positive tweets than the [TextBlob](https://textblob.readthedocs.io/en/dev/) analyzer. 
+I can see the same schema by comparing the results of high popular tweets.
 
+When comparing the differences of sentiment in tweets which are in English or German language, I draw the conclusion that the relative number of positive, negative and neutral tweets doesn’t really differ by using the [TextBlob](https://textblob.readthedocs.io/en/dev/) analyzer. 
+By looking at the [SentimentIntensityAnalyzer](https://www.nltk.org/api/nltk.sentiment.html?highlight=sentimentintensityanalyzer#nltk.sentiment.vader.SentimentIntensityAnalyzer) you can see that the relative number of negative tweets for English and German tweets are quite similar, but the English tweets have more positive tweets, in detail about 35% positive tweets in comparison to 3-4% positive tweets in German. 
 
+Unfortunately, I cannot see any differences in the sentiment in the years 2020 and 2021. 
+In addition, there aren’t huge differences in the percentages by considering all tweets or high popular tweets.
 
 # Conclusion
 
-# Future work
+My hypothesis that the tweets are getting a more negative sentiment in 2021 in comparison to 2020 is not fulfilled. 
+By using two sentiment analyzers I cannot see this behavior for 2020 and 2021. 
+It seems that the sentiment and public opinion about the covid-19 crisis didn’t change that much by analyzing tweets. 
+
+## Why is this project an intellgent information system?
+This project is an intelligent information system because it fulfills the most important functionalities of an intelligent information system. 
+It stores information and knowledge in form of csv files where information (here tweets) are stored and with pie charts which show knowledge. 
+It answers the question if the sentiment and public opinion about the covid-19 crisis changes from March 2020 to March 2021 in German and English-speaking countries and it discovers knowledge by drawing conclusions about this opinion.
+
+## Future work
 I noticed that most of the English-speaking medias speak about the covid-19 crisis and not the corona crisis whereas in Germany most medias call it corona crisis.
 Because of my background of living in Germany I scraped tweets with the term "corona" in it. 
 Maybe there would be more especially English tweets if I instead scraped tweets with the term "covid" in it.  

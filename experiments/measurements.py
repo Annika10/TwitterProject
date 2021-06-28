@@ -10,9 +10,9 @@ def update_number_of_sentiment_lists(compound, number_of_positive_tweets, number
     :param number_of_neutral_tweets: number of neutral tweets until now
     :return: updated numbers of positive, negative and neutral tweets
     """
-    if compound >= 0.5:
+    if compound >= 0.05:
         number_of_positive_tweets += 1
-    elif compound <= -0.5:
+    elif compound <= -0.05:
         number_of_negative_tweets += 1
     else:
         number_of_neutral_tweets += 1

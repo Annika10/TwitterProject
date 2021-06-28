@@ -23,29 +23,29 @@ if __name__ == "__main__":
     #
     # ##### experiments #####
     #
-    # # experiment 1
-    # # sia classifier, all tweets
-    # run_sia_classifier_and_save(data_path_parent, data_path_save, list_of_data_all, list_of_results_all)
-    #
-    # # experiment 2
-    # # textblob en classifier, all tweets
-    # run_textblob_classifier_and_save(data_path_parent, data_path_save, list_of_data_english, list_of_results_english)
-    #
-    # # experiment 3
-    # # textblob de classifier, all tweets
-    # run_textblobDE_classifier_and_save(data_path_parent, data_path_save, list_of_data_german, list_of_results_german)
-    #
-    # # experiment 4
-    # # sia classifier, popular tweets
-    # run_sia_classifier_and_save(data_path_parent, data_path_save, list_of_data_all_popularity, list_of_results_all_popularity)
-    #
-    # # experiment 5
-    # # textblob en classifier, popular tweets
-    # run_textblob_classifier_and_save(data_path_parent, data_path_save, list_of_data_english_popularity, list_of_results_english_popularity)
-    #
-    # # experiment 6
-    # # textblob de classifier, popular tweets
-    # run_textblobDE_classifier_and_save(data_path_parent, data_path_save, list_of_data_german_popularity, list_of_results_german_popularity)
+    # experiment 1
+    # sia classifier, all tweets
+    run_sia_classifier_and_save(data_path_parent, data_path_save, list_of_data_all, list_of_results_all)
+
+    # experiment 2
+    # textblob en classifier, all tweets
+    run_textblob_classifier_and_save(data_path_parent, data_path_save, list_of_data_english, list_of_results_english)
+
+    # experiment 3
+    # textblob de classifier, all tweets
+    run_textblobDE_classifier_and_save(data_path_parent, data_path_save, list_of_data_german, list_of_results_german)
+
+    # experiment 4
+    # sia classifier, popular tweets
+    run_sia_classifier_and_save(data_path_parent, data_path_save, list_of_data_all_popularity, list_of_results_all_popularity)
+
+    # experiment 5
+    # textblob en classifier, popular tweets
+    run_textblob_classifier_and_save(data_path_parent, data_path_save, list_of_data_english_popularity, list_of_results_english_popularity)
+
+    # experiment 6
+    # textblob de classifier, popular tweets
+    run_textblobDE_classifier_and_save(data_path_parent, data_path_save, list_of_data_german_popularity, list_of_results_german_popularity)
 
 
     ##### plotting #####
