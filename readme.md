@@ -3,7 +3,8 @@ This project is implemented as a student project of the course Intelligent Infor
 The aim is to compare the sentiment of tweets from the 15.03.2020 and 15.03.2021 which deal with the covid-19 crisis. 
 For this I downloaded the corresponding tweets and used two pretrained classifiers for gaining the sentiment.
 In the end the results are compared by plotting them in a pie chart.
-My hypothesis is that the tweets are getting more negative in 2021 because the covid-19 crisis takes already a year.
+My hypothesis is that the tweets are getting more negative sentiment in 2021 because the covid-19 crisis takes already a year.
+Important: the data set couldn't be uploaded due to its size. 
 
 # Scraping Tweets
 For scraping the tweets of the 15.03.2020 and 15.03.2021 I use the tool [Twint](https://github.com/twintproject/twint).
@@ -38,7 +39,7 @@ Therefore, I also consider German tweets in my analysis because I can get them e
 ## Popular tweets
 
 For reflecting more the overall opinion and not only some individual opinions, I made a selection on the tweets. 
-The selection includes popular tweets. 
+The selection is named popular tweets. 
 I refer a tweet as popular when it has at least 100 replies, retweets or likes. 
 
 ## Resulting Dataset
@@ -63,12 +64,12 @@ I assume that this is due to the point that the corona crisis just started in Ma
 # Experiments
 
 In each experiment I run through each tweet and calculate the polarity score also known as compound of each tweet.
-I consider experiment with all selected tweets as well as a selection of popular tweets.
+I consider experiments with all selected tweets as well as a selection of popular tweets.
 A tweet is considered as positive, neutral or negative by the following polarity scores. 
 
-    positive sentiment: polarity score >= 0.5
-    neutral sentiment:  polarity score < 0.5 and polarity score > -0.5 
-    negative sentiment: polarity score <= -0.5
+    positive sentiment: polarity score >= 0.05
+    neutral sentiment:  polarity score < 0.05 and polarity score > -0.05 
+    negative sentiment: polarity score <= -0.05
 
 The experiments with its preprocessing and plotting is implemented in [main.py](main.py).
 
