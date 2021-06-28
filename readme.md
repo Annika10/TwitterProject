@@ -100,7 +100,7 @@ In each title of the pie chart is the overall number of collected tweets.
 In the first experiment I use the [SentimentIntensityAnalyzer](https://www.nltk.org/api/nltk.sentiment.html?highlight=sentimentintensityanalyzer#nltk.sentiment.vader.SentimentIntensityAnalyzer) of the [nltk](https://www.nltk.org/) library.
 The sentiment analyzer is run over all tweets of the 15.03.2020 and 15.03.2021.
 The results of these numbers are shown in the following image. 
-![Alt text](result_images/experiment1.PNG "sia")
+![Alt text](result_images/experiment1.png "sia")
 
 ## Experiment 2 and Experiment 3
 ### Textblob - all tweets
@@ -108,7 +108,7 @@ The results of these numbers are shown in the following image.
 In the second experiment I use [TextBlob](https://textblob.readthedocs.io/en/dev/) for the text processing library.
 Note that the third experiment is similar to the second but uses [TextBlob for German language](https://textblob-de.readthedocs.io/en/latest/) which is its own library and not included in the standard textblob library. 
 The results are shown in the following.
-![Alt text](result_images/experiment2_3.PNG "test blob")
+![Alt text](result_images/experiment2_3.png "test blob")
 
 ## Experiment 4
 ### Sentiment Intensity Analyzer - popular tweets
@@ -116,13 +116,13 @@ The results are shown in the following.
 The structure of the fourth experiment is equal to the structure of the first experiment.
 The difference is the used data. 
 In this experiment only popular tweets (more than 100 retweets, replies or likes) are considered. 
-![Alt text](result_images/experiment4.PNG "sia high popularity")
+![Alt text](result_images/experiment4.png "sia high popularity")
 
 ## Experiment 5 and Experiment 6
 ### Textblob - popular tweets
 
 The fifth and sixth experiment is the same as the second and third experiment, but the input data are popular tweets like in experiment four.
-![Alt text](result_images/experiment5_6.PNG "high popularity")
+![Alt text](result_images/experiment5_6.png "high popularity")
 
 ## Analysis of experiments
 Firstly, I compare the differences between both sentiment analyzers. 
