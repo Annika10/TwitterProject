@@ -1,18 +1,3 @@
-from statistics import mean
-
-
-def get_scores(sentiment_intensity_analyzer, tokenized_word_list):
-    """
-    returns scores and mean scores of a tokenized word list
-    :param sentiment_intensity_analyzer: an object of an sentiment analyzer
-    :param tokenized_word_list: a list of words
-    :return: scores, mean from scores
-    """
-    scores = [
-        sentiment_intensity_analyzer.polarity_scores(token)["compound"]
-        for token in tokenized_word_list
-    ]
-    return scores, mean(scores)
 
 
 def update_number_of_sentiment_lists(compound, number_of_positive_tweets, number_of_negative_tweets,

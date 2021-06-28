@@ -74,12 +74,12 @@ def print_csv(data_path):
 
 def select_tweets_with_high_number_of_reactions(data_path_read, data_path_write, min_count_reaction, indexes_reaction):
     """
-    # TODO
-    :param data_path_read:
-    :param data_path_write:
-    :param min_count_reaction:
-    :param indexes_reaction:
-    :return:
+    selects tweets with a high number of reactions
+    :param data_path_read: path to csv where to select the high popular tweets
+    :param data_path_write: path to csv where the high popular tweets are stored
+    :param min_count_reaction: minimum number of reaction (e.g. min 100 likes)
+    :param indexes_reaction: indexes where the reactions in the csv are stored
+    :return: None
     """
     with open(data_path_read, encoding='utf-8') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter='\t')

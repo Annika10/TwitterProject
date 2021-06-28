@@ -9,6 +9,14 @@ from experiments.saveResults import save_results
 
 
 def run_sia_classifier_and_save(data_path_parent, data_path_save, list_of_data, list_of_results):
+    """
+    count for each tweet it's sentiment and save the numbers in a csv with the nltk sentiment intensity analyzer
+    :param data_path_parent: path to parent folder of project
+    :param data_path_save: path to folder where results are stored
+    :param list_of_data: list with the csv's which are analyzed
+    :param list_of_results: list with csv's where the numbers are stored
+    :return: None
+    """
     sid = SentimentIntensityAnalyzer()
 
     for index in range(len(list_of_data)):
@@ -37,6 +45,14 @@ def run_sia_classifier_and_save(data_path_parent, data_path_save, list_of_data, 
 
 
 def run_textblob_classifier_and_save(data_path_parent, data_path_save, list_of_data, list_of_results):
+    """
+    count for each tweet it's sentiment and save the numbers in a csv with the textblob lib
+    :param data_path_parent: path to parent folder of project
+    :param data_path_save: path to folder where results are stored
+    :param list_of_data: list with the csv's which are analyzed
+    :param list_of_results: list with csv's where the numbers are stored
+    :return: None
+    """
     for index in range(len(list_of_data)):
         list_of_tweets = create_text_list(data_path_read=os.path.join(data_path_parent, list_of_data[index]), index_tweet=10)
         number_of_tweets = len(list_of_tweets)
@@ -61,6 +77,14 @@ def run_textblob_classifier_and_save(data_path_parent, data_path_save, list_of_d
 
 
 def run_textblobDE_classifier_and_save(data_path_parent, data_path_save, list_of_data, list_of_results):
+    """
+    count for each tweet it's sentiment and save the numbers in a csv with the textblob lib for german language
+    :param data_path_parent: path to parent folder of project
+    :param data_path_save: path to folder where results are stored
+    :param list_of_data: list with the csv's which are analyzed
+    :param list_of_results: list with csv's where the numbers are stored
+    :return: None
+    """
     for index in range(len(list_of_data)):
         list_of_tweets = create_text_list(data_path_read=os.path.join(data_path_parent, list_of_data[index]), index_tweet=10)
         number_of_tweets = len(list_of_tweets)

@@ -9,7 +9,7 @@ def plot_results(list_of_results, data_path_results):
     fig, axs = plt.subplots(2, 2)
     label = ["positive tweets", "negative tweets", "neutral tweets"]
     dict_axes = {0: axs[0, 0], 1: axs[0, 1], 2: axs[1, 0], 3: axs[1, 1]}
-    dict_names = {0: "2020_en", 1: "2020_de", 2: "2021_en", 3: "2021_de"}
+    dict_names = {0: "2021_en", 1: "2020_en", 2: "2021_de", 3: "2020_de"}
 
     for index in range(len(list_of_results)):
         number_of_positive_tweets, number_of_negative_tweets, number_of_neutral_tweets = get_results(
